@@ -5,23 +5,10 @@ return {
 		parser_install_dir = "$HOME/.local/share/treesitter",
 		ensure_installed = {
 			-- languages
-			-- go
-			"go",
-			"gomod",
-			"gosum",
-			"gowork",
 			-- extras
 			"lua",
-			"html",
 			"bash",
 			"json",
-			"vimdoc",
-			"markdown",
-			"markdown_inline",
-			-- git
-			"git_config",
-			"gitignore",
-			"gitcommit",
 			-- sql
 			"sql",
 		},

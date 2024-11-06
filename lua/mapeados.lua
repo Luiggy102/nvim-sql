@@ -22,11 +22,6 @@ mapeado("n", "L", "<Cmd>bnext<CR>", optsBar)
 mapeado("n", "<C-w>", "<Cmd>bdelete<CR>")
 mapeado("n", "X", "<Cmd>b#<CR>", optsBar)
 
--- plugins
--- easy motion
--- vim.cmd([[let g:EasyMotion_do_mapping = 0]])
--- vim.cmd([[nmap s <plug>(easymotion-s2)]])
-
 -- oil nvim
 mapeado("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
@@ -42,11 +37,5 @@ mapeado(
 	":lua require('nvim-tree.api').tree.toggle({path = vim.fn.expand('%:p:h'),find_file=true})<cr>",
 	optsBar
 )
--- calendario vimwiki
-mapeado("n", "<leader>wc", ":CalendarH<cr>", optsBar)
-
 --lsp doc symbols
 mapeado("n", "<leader>ds", ":Telescope lsp_document_symbols<cr>", optsBar)
-
--- IconPicker
-mapeado("i", "II", "<CMD>IconPickerInsert emoji nerd_font<cr>", optsBar)

@@ -1,35 +1,6 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local kind_icons = {
-	Text = "󰉿",
-	Method = "󰆧",
-	Function = "󰊕",
-	Constructor = "",
-	Field = " ",
-	Variable = "󰀫",
-	Class = "󰠱",
-	Interface = "",
-	Module = "",
-	Property = "󰜢",
-	Unit = "󰑭",
-	Value = "󰎠",
-	Enum = "",
-	Keyword = "󰌋",
-	Snippet = "",
-	Color = "󰏘",
-	File = "󰈙",
-	Reference = "",
-	Folder = "󰉋",
-	EnumMember = "",
-	Constant = "󰏿",
-	Struct = "",
-	Event = "",
-	Operator = "󰆕",
-	TypeParameter = " ",
-	Misc = " ",
-}
 return {
-	-- require("luasnip.loaders.from_vscode").lazy_load(),
 	require("luasnip.loaders.from_vscode").lazy_load({
 		paths = { string.format("%s/.local/share/nvim/lazy/friendly-snippets/", os.getenv("HOME")) },
 	}),
@@ -69,7 +40,6 @@ return {
 		formatting = {
 			fields = { "kind", "abbr", "menu" },
 			format = function(entry, vim_item)
-				vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 				vim_item.menu = ({
 					nvim_lsp = "[LSP]",
 					luasnip = "[Snippet]",
@@ -84,19 +54,10 @@ return {
 		},
 		window = {
 			completion = cmp.config.window.bordered(),
-			-- documentation = cmp.config.window.bordered(),
 		},
 		experimental = {
 			ghost_text = true,
 		},
-	}),
-
-	-- git commit
-	cmp.setup.filetype("gitcommit", {
-		sources = cmp.config.sources({
-			{ name = "git" },
-			{ name = "buffer" },
-		}),
 	}),
 
 	cmp.setup.filetype({ "sql", "mysql" }, {
@@ -105,23 +66,6 @@ return {
 			{ name = "nvim_lsp" },
 			{ name = "buffer" },
 			{ name = "luasnip" },
-		}),
-	}),
-
-	-- vimwiki
-	cmp.setup.filetype({ "vimwiki", "text" }, {
-		sources = cmp.config.sources({
-			{
-				name = "spell",
-				option = {
-					keep_all_entries = false,
-					enable_in_context = function()
-						return true
-					end,
-				},
-			},
-			{ name = "buffer" },
-			{ name = "path" },
 		}),
 	}),
 

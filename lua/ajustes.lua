@@ -4,23 +4,7 @@ local buffer = vim.b
 local global = vim.g
 
 vim.api.nvim_command("set fillchars=eob:\\ ")
-
--- spell en archivos tipo
-vim.cmd([[autocmd BufRead,BufNewFile *.wiki setlocal spell]])
-vim.cmd([[autocmd BufRead,BufNewFile *.tex setlocal spell]])
-vim.cmd([[autocmd BufRead,BufNewFile *.md setlocal spell]])
-vim.cmd([[autocmd BufRead,BufNewFile *.txt setlocal spell]])
-
 vim.cmd([[autocmd BufRead,BufNewFile *.dbout setlocal nonumber norelativenumber]])
-
--- generar diario VimWiki
-vim.cmd([[
-let g:vimwiki_list = [{'auto_diary_index': 1}]
-]])
-
--- formatear el código en el guardado
--- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
--- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 -- Ajustes Globales
 global.mapleader = " "
@@ -57,7 +41,7 @@ opcion.cursorcolumn = false
 opcion.cursorline = true
 -- opcion.cursorlineopt = "number"
 opcion.numberwidth = 4
-opcion.signcolumn = "yes" -- columna gruvbox
+opcion.signcolumn = "yes"
 opcion.wrap = true
 opcion.linebreak = true
 opcion.scrolloff = 8
